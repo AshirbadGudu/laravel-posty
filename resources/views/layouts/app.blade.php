@@ -20,7 +20,7 @@
         </ul>
         <ul class="flex items-center">
             @auth()
-            <li><a class="p-3 mx-4" href="/profile">Ashirbad Panigrahi</a></li>
+            <li><a class="p-3 mx-4" href="/profile">{{auth()->user()->name}}</a></li>
             <li>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
