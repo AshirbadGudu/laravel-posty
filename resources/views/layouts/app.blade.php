@@ -24,7 +24,7 @@
             <li><a class="p-3" href="!#">Logout</a></li>
             @endauth
             @guest()
-            <li><a class="p-3" href="/login">Login</a></li>
+            <li><a class="p-3" href="{{ route('login') }}">Login</a></li>
             <li><a class="p-3" href="{{ route('register') }}">Register</a></li>
             @endguest
         </ul>
