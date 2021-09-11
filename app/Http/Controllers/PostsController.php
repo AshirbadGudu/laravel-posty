@@ -12,6 +12,12 @@ class PostsController extends Controller
     }
     public function addPost(Request $request)
     {
-        dd('added');
+        $this->validate($request, [
+            'body' => 'required'
+        ]);
+        $request->user()->posts()->create([
+            'body' => $request->body,
+        ]);
+        return back()->with('success', "Post added successfully");
     }
 }

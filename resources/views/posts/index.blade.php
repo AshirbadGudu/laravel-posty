@@ -3,6 +3,11 @@
 @section('content')
 <div class="flex justify-center">
     <div class="w-8/12 bg-white p-6 rounded-lg">
+        @if (session('success'))
+        <div class="bg-green-500 py-3 rounded-lg text-center text-white mb-4">
+            {{session('success')}}
+        </div>
+        @endif
         <form action="{{ route('posts')}}" method="post">
             @csrf
             <div class="mb-4">
@@ -11,7 +16,7 @@
                     border-red-500                        
                     @enderror"></textarea>
                 @error('body')
-                <div class="text-red-500 mt-2 text-sm">{{message}}</div>
+                <div class="text-red-500 mt-2 text-sm">{{$message}}</div>
                 @enderror
             </div>
             <button type="submit" class="bg-blue-500 rounded text-white px-4 py-3 font-medium w-full">
