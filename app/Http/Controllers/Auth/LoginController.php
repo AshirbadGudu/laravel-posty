@@ -25,7 +25,7 @@ class LoginController extends Controller
             "password" => "required",
         ]);
         // Sign in the user
-        if (!auth()->attempt($request->only('email', 'password'))) {
+        if (!auth()->attempt($request->only('email', 'password'), $request->only('remember'))) {
             # If attempt for login is failed then go back with some error message
             return back()->with('status', 'Invalid login attempt!');
         }
