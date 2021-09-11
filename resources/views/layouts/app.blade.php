@@ -7,12 +7,18 @@
     <title>Posty</title>
     <link rel="stylesheet" href={{ asset('css/app.css') }}>
 </head>
-<body class="bg-gray-100">
-    <nav class="p-6 bg-white flex">
-        <ul class="flex">
-            <li><a href="/">Home</a></li>
-            <li><a href="/dashboard">Dashboard</a></li>
-            <li><a href="/posts">Posts</a></li>
+<body class="bg-gray-200">
+    <nav class="p-6 bg-white flex justify-between mb-6">
+        <ul class="flex items-center">
+            <li><a class="p-3" href="/">Home</a></li>
+            <li><a class="p-3" href="/dashboard">Dashboard</a></li>
+            <li><a class="p-3" href="/posts">Posts</a></li>
+        </ul>
+        <ul class="flex items-center">
+            <li><a class="p-3" href="/profile">Ashirbad Panigrahi</a></li>
+            <li><a class="p-3" href="/login">Login</a></li>
+            <li><a class="p-3" href="/register">Register</a></li>
+            <li><a class="p-3" href="!#">Logout</a></li>
         </ul>
     </nav>
     @yield('content')
