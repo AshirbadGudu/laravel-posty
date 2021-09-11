@@ -20,8 +20,13 @@
         </ul>
         <ul class="flex items-center">
             @auth()
-            <li><a class="p-3" href="/profile">Ashirbad Panigrahi</a></li>
-            <li><a class="p-3" href="{{ route('logout')}}">Logout</a></li>
+            <li><a class="p-3 mx-4" href="/profile">Ashirbad Panigrahi</a></li>
+            <li>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="py-2 px-4 bg-red-500 text-white rounded">Logout</button>
+                </form>
+            </li>
             @endauth
             @guest()
             <li><a class="p-3" href="{{ route('login') }}">Login</a></li>
