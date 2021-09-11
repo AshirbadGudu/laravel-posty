@@ -8,7 +8,7 @@
             {{session('success')}}
         </div>
         @endif
-        <form action="{{ route('posts')}}" method="post">
+        <form action="{{ route('posts')}}" method="post" class="mb-4">
             @csrf
             <div class="mb-4">
                 <label for="body" class="sr-only">Body</label>
@@ -23,6 +23,22 @@
                 Post
             </button>
         </form>
+        @if ($posts->count())
+
+        @foreach ($posts as $post)
+        <div class="mb-4">
+            <a href="#" class="font-bold">
+                {{ $post->user->name  }}
+                <span class="text-gray-500 text-sm">{{$post->created_at->diffForHumans()}}</span>
+            </a>
+            <p class="mb-4">{{$post->body}}</p>
+        </div>
+        @endforeach
+        @else
+        <div class="bg-red-400 py-3 rounded-lg text-center text-white mb-4">
+            There are no posts available
+        </div>
+        @endif
     </div>
 </div>
 @endsection
