@@ -17,7 +17,7 @@
         <ul class="flex items-center">
             <li><a class="p-3" href="/profile">Ashirbad Panigrahi</a></li>
             <li><a class="p-3" href="/login">Login</a></li>
-            <li><a class="p-3" href="/register">Register</a></li>
+            <li><a class="p-3" href="{{ route('register') }}">Register</a></li>
             <li><a class="p-3" href="!#">Logout</a></li>
         </ul>
     </nav>
