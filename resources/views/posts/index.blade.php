@@ -24,7 +24,6 @@
             </button>
         </form>
         @if ($posts->count())
-
         @foreach ($posts as $post)
         <div class="mb-4">
             <a href="#" class="font-bold">
@@ -33,7 +32,7 @@
             </a>
             <p class="mb-4">{{$post->body}}</p>
             <div class="flex items-center">
-                <form action="" method="post" class='mr-1'>
+                <form action="{{ route('posts.likes', $post->id) }}" method="post" class='mr-1'>
                     @csrf
                     <button type="submit" class="text-blue-500">Like</button>
                 </form>
