@@ -39,6 +39,8 @@
             There are no posts available
         </div>
         @endif
+        {{-- Creating Pagination --}}
+        {{$posts->links()}}
     </div>
 </div>
 @endsection
