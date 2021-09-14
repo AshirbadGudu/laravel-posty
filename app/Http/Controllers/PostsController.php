@@ -24,4 +24,9 @@ class PostsController extends Controller
         ]);
         return back()->with('success', "Post added successfully");
     }
+    public function destroy(Post $post)
+    {
+        $post->delete();
+        return back()->with('success', "Post deleted successfully");
+    }
 }
