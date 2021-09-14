@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Foundation\Auth\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserPostController extends Controller
@@ -10,10 +10,10 @@ class UserPostController extends Controller
     //
     public function index(User $user)
     {
-        # code...
+        $posts = $user->posts()->with(['user', 'likes'])->paginate(5);
         return view('users.posts', [
             'user' => $user,
-
+            'posts' => $posts,
         ]);
     }
 }
