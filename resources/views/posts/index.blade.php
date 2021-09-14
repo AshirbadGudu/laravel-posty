@@ -32,11 +32,13 @@
             </a>
             <p class="mb-4">{{$post->body}}</p>
             @auth()
+            @if ($post->ownedBy(auth()->user()))
             <form action="{{ route('posts.delete', $post) }}" method="post" class='mr-1'>
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="text-red-500">Delete</button>
             </form>
+            @endif
             @endauth
             <div class="flex items-center">
                 @auth()
