@@ -30,16 +30,15 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::post('/logout', [LogoutController::class, 'index'])->name('logout');
-
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+Route::get('/users/{user:username}/posts', [UserPostController::class, 'index'])->name('users.posts');
+
+Route::post('/logout', [LogoutController::class, 'index'])->name('logout');
 
 Route::get('/posts', [PostsController::class, 'index'])->name('posts');
 Route::post('/posts', [PostsController::class, 'addPost']);
-
-Route::get('/users/{user:username}/posts', [UserPostController::class, 'index'])->name('users.posts');
-
 Route::delete('/posts/{post}', [PostsController::class, 'destroy'])->name('posts.delete');
+Route::get('/posts/{post}', [PostsController::class, 'show'])->name('posts.show');
 
 Route::post('/posts/{post}/likes', [PostLikeController::class, 'index'])->name('posts.likes');
 Route::delete('/posts/{post}/likes', [PostLikeController::class, 'destroy']);

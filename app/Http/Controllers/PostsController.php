@@ -14,6 +14,14 @@ class PostsController extends Controller
             'posts' => $posts,
         ]);
     }
+
+    public function show(Post $post)
+    {
+        return view('posts.show', [
+            'post' => $post,
+        ]);
+    }
+
     public function addPost(Request $request)
     {
         $this->validate($request, [
