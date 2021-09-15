@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['auth'])->only(['addPost', 'destroy']);
+    }
+
+
     public function index()
     {
         $posts = Post::latest()->with(['user', 'likes'])->paginate(5);
